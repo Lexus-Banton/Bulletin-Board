@@ -34,14 +34,39 @@
             <p class="title">Cute Bulletin Board</p>
             <img class="logo" src="/assets/star.gif" alt="logo" />
             <nav>
-                <a href="/post-editor">New Post</a>
-                <a id="sign-out-link" href="auth">Sign Out</a>
+                <a href="/">View Posts
+                <a id="sign-out-link" href="/auth/auth.js">Sign Out</a>
             </nav>
         </header>
 
         <main>
-            <p id="error-display" class="error"></p>
-            <ul id="post-list"></ul>
+          <form id="post-form">
+            <label> Pick A Category
+                <select id="category-select">
+                    <option value="games">Gaming</option>
+                    <option value="anime">Anime</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Figures">Figures</option>
+                    <option value="misc">Misc.</option>
+                </select>
+            </label>
+
+            <label>
+                <div>Title</div>
+                <textarea name="title" required placeholder="What is this post about?"></textarea>
+            </label>
+            <label>
+                <div>Description</div>
+                <textarea name="description" required placeholder="More Details Here"></textarea>
+            </label>
+
+            <label>
+                <div>Contact</div>
+                <textarea name="contact"></textarea>
+            </label>
+            <button>Add Post</button>
+            <p id="error"></p>
+          </form>
         </main>
     </body>
 </html>
