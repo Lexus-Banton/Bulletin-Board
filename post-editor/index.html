@@ -11,8 +11,8 @@
         <link rel="icon" type="image/x-icon" href="/assets/Star.gif" />
 
         <!-- js -->
-        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-        <script type="module" src="app.js"></script>
+        <script defer src=" https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"></script>
+        <script type="module" src="post-editor.js"></script>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +43,7 @@
         <main>
           <form id="post-form">
             <label> Pick A Category
-                <select id="category-select">
+                <select name="category" id="category-select">
                     <option value="games">Gaming</option>
                     <option value="anime">Anime</option>
                     <option value="Clothes">Clothes</option>
