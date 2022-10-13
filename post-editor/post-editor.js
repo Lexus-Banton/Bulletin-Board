@@ -1,6 +1,6 @@
 /* Imports */
 import '../auth/user.js';
-import { createPost } from '../fetch-utils.js';
+import { createPost, uploadImage } from '../fetch-utils.js';
 
 /* Dom Elements */
 const postForm = document.getElementById('post-form');
@@ -17,11 +17,18 @@ postForm.addEventListener('submit', async (e) => {
 
     const formData = new FormData(postForm);
 
+    const imageFile = formData.get('image_url');
+    const randomFolder = Math.floor(Date.now() * Math.random());
+    const imagePath = `bulletin/${randomFolder}/${imageFile.name}`;
+
+    const url = await uploadImage('bulletin-images', imagePath, imageFile);
+
     const post = {
         title: formData.get('title'),
         description: formData.get('description'),
         contact: formData.get('contact'),
         category: formData.get('category'),
+        image_url: url,
     };
 
     const response = await createPost(post);
