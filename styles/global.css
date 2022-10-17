@@ -81,6 +81,7 @@ main {
     background-image: url('/assets/pink-cork.jpg');
     padding-left: 25px;
     padding-top: 25px;
+    gap: 10px;
 }
 
 li {

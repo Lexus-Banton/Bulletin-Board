@@ -4,16 +4,27 @@ export function renderPost(post) {
     const h2 = document.createElement('h2');
     h2.textContent = post.title;
 
-    const p = document.createElement('p');
-    p.textContent = post.description;
+    const desc = document.createElement('p');
+    desc.textContent = post.description;
 
     const img = document.createElement('img');
     img.src = post.image_url;
 
-    const h6 = document.createElement('h6');
-    h6.textContent = post.contact;
+    const p = document.createElement('p');
+    p.textContent = post.contact;
 
-    li.append(h2, p, img, h6);
+    const span = document.createElement('span');
+    span.textContent = getCategoryEmoji(post.category);
+
+    li.append(h2, span, desc, img, p);
 
     return li;
+}
+
+function getCategoryEmoji(category) {
+    if (category === 'Gaming') return '🎮';
+    if (category === 'Anime') return '🌸';
+    if (category === 'Clothes') return '👘';
+    if (category === 'Figures') return '🧸';
+    if (category === 'Misc.') return '🍥';
 }
