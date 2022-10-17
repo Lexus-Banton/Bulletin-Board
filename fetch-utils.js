@@ -33,11 +33,13 @@ export async function createPost(post) {
     return await client.from('bulletin').insert(post);
 }
 
+export async function getPosts() {
+    return await client.from('bulletin').select('*');
+}
+
 export async function uploadImage(bucketName, imagePath, imageFile) {
     const bucket = client.storage.from(bucketName);
-    console.log(imageFile);
-    console.log(bucketName);
-    console.log(imagePath);
+
     const response = await bucket.upload(imagePath, imageFile, {
         cacheControl: '3600',
 
@@ -45,7 +47,7 @@ export async function uploadImage(bucketName, imagePath, imageFile) {
     });
     if (response.error) {
         // eslint-disable-next-line no-console
-        //console.log(response.error);
+        console.log(response.error);
         return null;
     }
 
